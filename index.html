@@ -1,22 +1,79 @@
-<!DOCTYPE HTML>
-<HTML>
-	<HEAD>
-		<TITLE> MUHAMMED RAZAL 
-		</TITLE>
-	</HEAD>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Razal - Welcome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #e5e7eb;
+            font-family: 'Inter', sans-serif;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="bg-gray-900 py-6 shadow-lg">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl font-bold text-green-400 text-center">Welcome to Muhammed Razal's Page</h1>
+        </div>
+    </header>
 
-	<BODY BGCOLOR="0" TEXT="GREEN">
-	<H1 ALIGN= CENTER><U>ABOUT ME</U>
-	</H>
-	<P ALIGN= LEFT> I LIVE IN LATVIA<BR>I STUDY COMPUTER SYSTEMS<BR>IM IN MY FIFTH 	SEMESTER<BR>I AM A CYBERSECURITY ENTHUSIAST<BR>LIFE IS GOOD </P>
-<BR>
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-12">
+        <section class="text-center mb-12 fade-in">
+            <h2 class="text-3xl font-semibold text-green-400 mb-4">About Me</h2>
+            <p class="text-lg text-gray-300 leading-relaxed">
+                Hey there! I'm Muhammed Razal, a cybersecurity enthusiast studying Computer Systems in my fifth semester at a university in Latvia. I'm passionate about securing digital spaces and exploring the ever-evolving world of tech. Life's good, and I'm excited to share my journey with you!
+            </p>
+        </section>
 
-<H1 ALIGN= CENTER> THIS IS H1</H1><BR>
-<H2 ALIGN= CENTER> THIS IS H2</H2><BR>
-<H3 ALIGN= CENTER> THIS IS H3</H3><BR>
-<H4 ALIGN= CENTER> THIS IS H4</H4><BR>
-<H5 ALIGN= CENTER> THIS IS H5</H5><BR>
-<H6 ALIGN= CENTER> THIS IS H6</H6>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md fade-in">
+                <h3 class="text-xl font-semibold text-green-400 mb-2">My Interests</h3>
+                <ul class="list-disc list-inside text-gray-300">
+                    <li>Cybersecurity & Ethical Hacking</li>
+                    <li>System Architecture</li>
+                    <li>Open-Source Projects</li>
+                    <li>Tech Innovation</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md fade-in">
+                <h3 class="text-xl font-semibold text-green-400 mb-2">Connect with Me</h3>
+                <p class="text-gray-300">
+                    Check out my projects on <a href="https://github.com/yourusername" class="text-green-400 hover:underline" target="_blank">GitHub</a> or reach out via <a href="mailto:your.email@example.com" class="text-green-400 hover:underline">email</a>.
+                </p>
+            </div>
+        </section>
+    </main>
 
-	</BODY>
-</HTML>
+    <footer class="bg-gray-900 py-4 text-center">
+        <p class="text-gray-400">&copy; 2025 Russell. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
