@@ -19,3 +19,4 @@ Muhammed Razal HW L2.html: Homework file implementing a color palette mixer usin
 ## **Usage**
 
 Open the HTML files in a web browser to explore and interact with the exercises.
+ https://russellmd3.github.io/Internet-and-Web-Basics/ + name of the webpage.
