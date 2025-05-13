@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Min-Max Validation</title>
+</head>
+<body>
+  <h2>Enter Minimum and Maximum Values in the Form</h2>
+
+  <form onsubmit="return checkValues()">
+    <label>Minimum:</label>
+    <input type="text" id="minInput"><br><br>
+
+    <label>Maximum:</label>
+    <input type="text" id="maxInput"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <p id="errorMsg" style="color: red;"></p>
+
+  <script>
+    function checkValues() {
+      // Get the values from the input fields
+      let min = document.getElementById("minInput").value;
+      let max = document.getElementById("maxInput").value;
+
+    
+      let minNumber = Number(min);
+      let maxNumber = Number(max);
+
+    
+      let message = document.getElementById("errorMsg");
+
+      
+      if (isNaN(minNumber) || isNaN(maxNumber)) {
+        message.textContent = "Please enter numbers only.";
+        return false; 
+      }
+
+     
+      if (minNumber >= maxNumber) {
+        message.textContent = "Minimum must be less than Maximum.";
+        return false; 
+      }
+
+      
+      message.style.color = "green";
+      message.textContent = "Values are valid!";
+      return true; 
+    }
+  </script>
+</body>
+</html>
