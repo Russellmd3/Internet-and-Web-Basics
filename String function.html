@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String Methods</title>
+</head>
+<body>
+  <h1>String Methods Demo</h1>
+  <input type="text" id="inputStr" value=" " style="width:300px;">
+  <button onclick="runDemo()">Run </button>
+
+  <pre id="output"></pre>
+
+  <script>
+    function runDemo() {
+      let str = document.getElementById('inputStr').value;
+      let extra = ' hey there';
+      let output = '';
+
+      output += `Original: "${str}"\n`;
+      output += `Length: ${str.length}\n`;
+      output += `trim(): "${str.trim()}"\n`;
+      output += `trimStart(): "${str.trimStart()}"\n`;
+      output += `trimEnd(): "${str.trimEnd()}"\n`;
+      output += `slice(0,10): "${str.trim().slice(0,10)}"\n`;
+      output += `substring(0,10): "${str.trim().substring(0,10)}"\n`;
+      output += `substr(0,10): "${str.trim().substr(0,10)}"\n`;
+      output += `toUpperCase(): "${str.trim().toUpperCase()}"\n`;
+      output += `toLowerCase(): "${str.trim().toLowerCase()}"\n`;
+      output += `concat(extra): "${str.trim().concat(extra)}"\n`;
+      output += `padStart(20,'*'): "${'42'.padStart(20,'*')}"\n`;
+      output += `padEnd(20,'*'): "${'42'.padEnd(20,'*')}"\n`;
+      output += `charAt(4): '${str.trim().charAt(4)}'\n`;
+      output += `charCodeAt(4): ${str.trim().charCodeAt(4)}\n`;
+      output += `split(' '): [${str.trim().split(' ').join(', ')}]\n`;
+
+      document.getElementById('output').textContent = output;
+    }
+  </script>
+</body>
+</html>
