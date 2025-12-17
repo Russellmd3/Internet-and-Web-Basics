@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV + Web Technology Tasks</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f4f6f8;
+}
+
+h1, h2 {
+  color: #1f3c88;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  background: #1f3c88;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #163172;
+}
+
+input {
+  padding: 6px;
+  margin: 6px 0;
+  width: 250px;
+}
+
+.task-btn {
+  width: 45px;
+  background: #3a86ff;
+}
+
+.hidden {
+  display: none;
+}
+
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.desc {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.result {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #0b8457;
+}
+</style>
+</head>
+
+<body>
+
+
+
+
+<div class="cv"> <h1>Razal</h1> <p><strong>Cybersecurity Aspirant</strong></p> <p>Email: razalxx2@gmail.com</p> <p>Location: Riga, Latvia</p> <h2>About Me</h2> <p>Information security student with a passion for cybersecurity and a strong academic and professional background.</p> <h2>Education</h2> <ul> <li><strong>High School</strong> - The Warwin School, Kerala, India</li> <li><strong>Bachelor's Degree</strong> - Riga Nordic University, Riga, Latvia</li> </ul> <h2>Experience</h2> <ul> <li>Game Presenter - Evolution Gaming, Latvia (2022 - 2024)</li> <li>Game Host - Evolution Latvia (2024 - 2025)</li> <li>Travel Manager - Business Class (2025 - Present)</li> </ul> <h2>Languages Known</h2> <ul> <li>English - C2 (Near Native)</li> <li>Malayalam - C2 (Native)</li> <li>Hindi - B2 (Advanced)</li> <li>Arabic - A2 (Intermediate)</li> </ul> </div>
+<hr>
+
+<!-- TASK MENU -->
+<div id="menu">
+<h2>Web Technology Tasks (Set C)</h2>
+<p class="desc">Click any task number to perform the operation.</p>
+<div>
+<script>
+for(let i=1;i<=30;i++){
+  document.write(`<button class="task-btn" onclick="openTask(${i})">${i}</button>`);
+}
+</script>
+</div>
+</div>
+
+<!-- TASK VIEW -->
+<div id="taskPage" class="hidden box">
+<h2 id="taskTitle"></h2>
+<p id="taskDesc" class="desc"></p>
+<div id="taskContent"></div>
+<p id="output" class="result"></p>
+<button onclick="goBack()">⬅ Back to Tasks</button>
+</div>
+
+<script>
+let arr = [1,2,3,4];
+let person = { name:"Razal", age:22, gender:"Male" };
+let timer, sec = 0;
+
+function openTask(n) {
+  menu.classList.add("hidden");
+  taskPage.classList.remove("hidden");
+  output.innerText = "";
+  taskTitle.innerText = "Task " + n;
+
+  const desc = [
+    "Reverse the given string.",
+    "Extract the 3rd and 4th characters from a string.",
+    "Toggle characters between uppercase and lowercase.",
+    "Find the position of a substring inside a string.",
+    "Count special characters in a string.",
+    "Find repeated characters in a word.",
+    "Create and display an array.",
+    "Display the last element of an array using popup.",
+    "Display the 10th character of a string.",
+    "Merge two arrays.",
+    "Double each element using map().",
+    "Find maximum and minimum values in an array.",
+    "Insert an element at a specific index.",
+    "Delete elements from a given index range.",
+    "Perform arithmetic operation using function.",
+    "Check whether a number is prime.",
+    "Check whether a string or number is palindrome.",
+    "Generate Fibonacci series.",
+    "Find power of a number.",
+    "Allow only 10-digit input.",
+    "Convert string input into array.",
+    "Validate email format.",
+    "Validate mobile number digits.",
+    "Signup form with submit and reset.",
+    "Display submitted data.",
+    "Prevent submission if validation fails.",
+    "Create a person object.",
+    "Loop and display object properties.",
+    "Stopwatch using setInterval.",
+    "Display typed characters live using keypress."
+  ];
+
+  taskDesc.innerText = desc[n-1];
+
+  switch(n) {
+
+case 1:
+taskContent.innerHTML = `
+<input id="t1" placeholder="Enter string">
+<button onclick="output.innerText=t1.value.split('').reverse().join('')">Reverse</button>`;
+break;
+
+case 2:
+taskContent.innerHTML = `
+<input id="t2" placeholder="Enter string">
+<button onclick="output.innerText=t2.value.substring(2,4)">Extract</button>`;
+break;
+
+case 3:
+taskContent.innerHTML = `
+<input id="t3">
+<button onclick="output.innerText=[...t3.value].map(c=>c==c.toUpperCase()?c.toLowerCase():c.toUpperCase()).join('')">Toggle</button>`;
+break;
+
+case 4:
+taskContent.innerHTML = `
+<input id="m" placeholder="Main string">
+<input id="s" placeholder="Substring">
+<button onclick="output.innerText=m.value.indexOf(s.value)">Find</button>`;
+break;
+
+case 5:
+taskContent.innerHTML = `
+<input id="t5">
+<button onclick="output.innerText=(t5.value.match(/[^a-zA-Z0-9]/g)||[]).length">Count</button>`;
+break;
+
+case 6:
+taskContent.innerHTML = `
+<input id="t6">
+<button onclick="
+let r=[];
+for(let c of t6.value)
+ if(t6.value.indexOf(c)!=t6.value.lastIndexOf(c)&&!r.includes(c)) r.push(c);
+output.innerText=r">Find</button>`;
+break;
+
+case 7:
+taskContent.innerHTML = `<button onclick="output.innerText=arr">Show Array</button>`;
+break;
+
+case 8:
+taskContent.innerHTML = `<button onclick="alert(arr[arr.length-1])">Show Last</button>`;
+break;
+
+case 9:
+taskContent.innerHTML = `
+<input id="t9">
+<button onclick="alert(t9.value[9])">Show</button>`;
+break;
+
+case 10:
+taskContent.innerHTML = `<button onclick="output.innerText=arr.concat([5,6])">Merge</button>`;
+break;
+
+case 11:
+taskContent.innerHTML = `<button onclick="output.innerText=arr.map(x=>x*2)">Double</button>`;
+break;
+
+case 12:
+taskContent.innerHTML = `<button onclick="output.innerText='Max:'+Math.max(...arr)+' Min:'+Math.min(...arr)">Find</button>`;
+break;
+
+case 13:
+taskContent.innerHTML = `<button onclick="arr.splice(2,0,99);output.innerText=arr">Insert</button>`;
+break;
+
+case 14:
+taskContent.innerHTML = `<button onclick="arr.splice(1,2);output.innerText=arr">Delete</button>`;
+break;
+
+case 15:
+taskContent.innerHTML = `<button onclick="alert(5+3)">Add</button>`;
+break;
+
+case 16:
+taskContent.innerHTML = `
+<input id="t16">
+<button onclick="
+let n=t16.value,p=true;
+for(let i=2;i<n;i++) if(n%i==0) p=false;
+output.innerText=p?'Prime':'Not Prime'">Check</button>`;
+break;
+
+case 17:
+taskContent.innerHTML = `
+<input id="t17">
+<button onclick="output.innerText=t17.value==t17.value.split('').reverse().join('')">Check</button>`;
+break;
+
+case 18:
+taskContent.innerHTML = `<button onclick="
+let a=0,b=1,res=[a,b];
+for(let i=2;i<7;i++){[a,b]=[b,a+b];res.push(b);}
+output.innerText=res">Generate</button>`;
+break;
+
+case 19:
+taskContent.innerHTML = `<button onclick="alert(Math.pow(2,3))">2³</button>`;
+break;
+
+case 20:
+taskContent.innerHTML = `<input maxlength="10" placeholder="Enter 10 digits">`;
+break;
+
+case 21:
+taskContent.innerHTML = `<button onclick="alert('a,b,c'.split(','))">Convert</button>`;
+break;
+
+case 22:
+taskContent.innerHTML = `
+<input id="t22">
+<button onclick="output.innerText=/\\S+@\\S+\\.\\S+/.test(t22.value)">Validate</button>`;
+break;
+
+case 23:
+taskContent.innerHTML = `
+<input id="t23">
+<button onclick="output.innerText=/^\\d{10}$/.test(t23.value)">Validate</button>`;
+break;
+
+case 24:
+taskContent.innerHTML = `
+<input id="u" placeholder="Username">
+<input id="p" placeholder="Password">
+<button onclick="output.innerText=u.value?'Submitted':'Failed'">Submit</button>`;
+break;
+
+case 25:
+taskContent.innerHTML = `<p>Submitted data is displayed above.</p>`;
+break;
+
+case 26:
+taskContent.innerHTML = `<p>Form submission is prevented when validation fails.</p>`;
+break;
+
+case 27:
+taskContent.innerHTML = `<button onclick="output.innerText=JSON.stringify(person)">Create Object</button>`;
+break;
+
+case 28:
+taskContent.innerHTML = `<button onclick="
+let t='';
+for(let k in person) t+=k+':'+person[k]+' ';
+output.innerText=t">Loop</button>`;
+break;
+
+case 29:
+taskContent.innerHTML = `
+<button onclick="timer=setInterval(()=>output.innerText=++sec,1000)">Start</button>
+<button onclick="clearInterval(timer)">Pause</button>
+<button onclick="sec=0;output.innerText=0">Reset</button>`;
+break;
+
+case 30:
+taskContent.innerHTML = `<input onkeyup="output.innerText=this.value">`;
+break;
+  }
+}
+
+function goBack() {
+  taskPage.classList.add("hidden");
+  menu.classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
